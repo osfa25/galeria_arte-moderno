@@ -1,4 +1,4 @@
-
+// Datos de ejemplo con imágenes reales verificadas
 const artworks = [
     
     { title: "La persistencia de la memoria", artist: "Salvador Dalí", year: 1931, image: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg" },
@@ -12,7 +12,7 @@ const exhibitions = [
 ];
 
 const artists = [
-   
+    
     { name: "Pablo Picasso", specialty: "Cubismo", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/800px-Pablo_picasso_1.jpg" },
     { name: "Georgia O'Keeffe", specialty: "Modernismo americano", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/O%27Keeffe-%28hands%29.jpg/800px-O%27Keeffe-%28hands%29.jpg" },
     { name: "Andy Warhol", specialty: "Pop Art", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Andy_Warhol_1975.jpg/800px-Andy_Warhol_1975.jpg" }
@@ -23,18 +23,51 @@ const events = [
     { title: "Charla: El Futuro del Arte Digital", date: "20 Julio, 2024", image: "https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" }
 ];
 
-
-
-
-function loadGallery() {
-    const gallery = document.getElementById('featured-gallery');
+// Función para cargar el carrusel
+function loadCarousel() {
+    const carouselContent = document.getElementById('carouselContent');
     artworks.forEach(artwork => {
-        const item = createItemElement(artwork, 'gallery-item');
-        gallery.appendChild(item);
+        const item = document.createElement('div');
+        item.className = 'carousel-item';
+        item.innerHTML = `
+            <img src="${artwork.image}" alt="${artwork.title}">
+            <div class="info">
+                <h3>${artwork.title}</h3>
+                <p>${artwork.artist}, ${artwork.year}</p>
+            </div>
+        `;
+        carouselContent.appendChild(item);
     });
 }
 
+// Función para manejar el carrusel
+function handleCarousel() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const carouselContent = document.getElementById('carouselContent');
+    let currentIndex = 0;
 
+    function showSlide(index) {
+        const newTransformValue = -index * 100 + '%';
+        carouselContent.style.transform = 'translateX(' + newTransformValue + ')';
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+        showSlide(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % artworks.length;
+        showSlide(currentIndex);
+    });
+
+    // Asegurarse de que los botones sean visibles
+    prevBtn.style.display = 'block';
+    nextBtn.style.display = 'block';
+}
+
+// Función para cargar las exposiciones
 function loadExhibitions() {
     const exhibitionList = document.querySelector('.exhibition-list');
     exhibitions.forEach(exhibition => {
@@ -43,7 +76,7 @@ function loadExhibitions() {
     });
 }
 
-
+// Función para cargar los artistas
 function loadArtists() {
     const artistGrid = document.querySelector('.artist-grid');
     artists.forEach(artist => {
@@ -52,7 +85,7 @@ function loadArtists() {
     });
 }
 
-
+// Función para cargar los eventos
 function loadEvents() {
     const eventList = document.querySelector('.event-list');
     events.forEach(event => {
@@ -61,7 +94,7 @@ function loadEvents() {
     });
 }
 
-
+// Función auxiliar para crear elementos
 function createItemElement(data, className) {
     const item = document.createElement('div');
     item.className = className;
@@ -97,9 +130,10 @@ function handleNavigation() {
     });
 }
 
-
+// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
-    loadGallery();
+    loadCarousel();
+    handleCarousel();
     loadExhibitions();
     loadArtists();
     loadEvents();

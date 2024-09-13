@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
     --primary-color: #1a1a1a;
@@ -93,14 +94,71 @@ h1, h2 {
     border-radius: 8px;
 }
 
-.gallery, .exhibition-list, .artist-grid, .event-list {
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.carousel-item .info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.exhibition-list, .artist-grid, .event-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.gallery-item, .exhibition-item, .artist-item, .event-item {
+.exhibition-item, .artist-item, .event-item {
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -108,11 +166,11 @@ h1, h2 {
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover, .exhibition-item:hover, .artist-item:hover, .event-item:hover {
+.exhibition-item:hover, .artist-item:hover, .event-item:hover {
     transform: translateY(-5px);
 }
 
-.gallery-item img, .exhibition-item img, .artist-item img, .event-item img {
+.exhibition-item img, .artist-item img, .event-item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -125,6 +183,62 @@ h1, h2 {
 .info h3 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
+}
+
+/* Estilos para la sección Acerca de */
+#about {
+    background-color: #fff;
+    padding: 4rem 2rem;
+}
+
+.about-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#about h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+#about p {
+    margin-bottom: 1rem;
+}
+
+#about ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+#about ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+#about ul li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
 
 footer {
@@ -153,4 +267,15 @@ footer {
 
 .social-media a:hover {
     color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        order: -1;
+        margin-bottom: 2rem;
+    }
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Arte Moderno</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body>
     <header>
@@ -29,34 +29,60 @@
             </div>
             <div class="featured-gallery">
                 <h2>Obras Destacadas</h2>
-                <div id="featured-gallery" class="gallery"></div>
+                <div id="carousel" class="carousel">
+                    <button id="prevBtn" class="carousel-btn prev">&lt;</button>
+                    <div id="carouselContent" class="carousel-content"></div>
+                    <button id="nextBtn" class="carousel-btn next">&gt;</button>
+                </div>
             </div>
         </section>
 
         <section id="exhibitions">
             <h2>Exposiciones Actuales</h2>
             <div class="exhibition-list">
-                
+                <!-- Las exposiciones se cargarán dinámicamente con JavaScript -->
             </div>
         </section>
 
         <section id="artists">
             <h2>Nuestros Artistas</h2>
             <div class="artist-grid">
-             
+                <!-- Los artistas se cargarán dinámicamente con JavaScript -->
             </div>
         </section>
 
         <section id="events">
             <h2>Próximos Eventos</h2>
             <div class="event-list">
-                
+                <!-- Los eventos se cargarán dinámicamente con JavaScript -->
             </div>
         </section>
 
         <section id="about">
             <h2>Acerca de Nosotros</h2>
-            <p>La Galería de Arte Moderno es un espacio dedicado a la promoción y exhibición de arte contemporáneo. Fundada en 2010, nuestra misión es proporcionar una plataforma para artistas emergentes y establecidos, fomentando el diálogo cultural y la apreciación del arte moderno.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>La Galería de Arte Moderno es un espacio innovador dedicado a la promoción y exhibición de arte contemporáneo. Fundada en 2010, nuestra misión es proporcionar una plataforma dinámica para artistas emergentes y establecidos, fomentando el diálogo cultural y la apreciación del arte moderno en todas sus formas.</p>
+                    
+                    <h3>Nuestra Visión</h3>
+                    <p>Aspiramos a ser un centro de referencia en el mundo del arte moderno, impulsando la creatividad, la innovación y el pensamiento crítico. Buscamos inspirar a nuestros visitantes, desafiando percepciones y estimulando conversaciones en torno al arte contemporáneo.</p>
+                    
+                    <h3>Lo que Ofrecemos</h3>
+                    <ul>
+                        <li>Exposiciones rotativas de artistas nacionales e internacionales</li>
+                        <li>Programas educativos y talleres para todas las edades</li>
+                        <li>Colaboraciones con instituciones culturales y educativas</li>
+                        <li>Espacio para eventos y presentaciones artísticas</li>
+                        <li>Visitas guiadas y experiencias interactivas</li>
+                    </ul>
+                    
+                    <h3>Nuestro Compromiso</h3>
+                    <p>Nos comprometemos a apoyar la diversidad en el arte, promoviendo voces únicas y perspectivas innovadoras. Trabajamos constantemente para hacer del arte una experiencia accesible e inclusiva para todos.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Interior de la Galería de Arte Moderno">
+                </div>
+            </div>
         </section>
     </main>
 

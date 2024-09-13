@@ -1,4 +1,4 @@
-// Datos de ejemplo con imágenes reales verificadas
+
 const artworks = [
     
     { title: "La persistencia de la memoria", artist: "Salvador Dalí", year: 1931, image: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg" },
@@ -23,7 +23,7 @@ const events = [
     { title: "Charla: El Futuro del Arte Digital", date: "20 Julio, 2024", image: "https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" }
 ];
 
-// Función para cargar el carrusel
+
 function loadCarousel() {
     const carouselContent = document.getElementById('carouselContent');
     artworks.forEach(artwork => {
@@ -40,7 +40,7 @@ function loadCarousel() {
     });
 }
 
-// Función para manejar el carrusel
+
 function handleCarousel() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -67,7 +67,7 @@ function handleCarousel() {
     nextBtn.style.display = 'block';
 }
 
-// Función para cargar las exposiciones
+
 function loadExhibitions() {
     const exhibitionList = document.querySelector('.exhibition-list');
     exhibitions.forEach(exhibition => {
@@ -76,7 +76,7 @@ function loadExhibitions() {
     });
 }
 
-// Función para cargar los artistas
+
 function loadArtists() {
     const artistGrid = document.querySelector('.artist-grid');
     artists.forEach(artist => {
@@ -85,7 +85,7 @@ function loadArtists() {
     });
 }
 
-// Función para cargar los eventos
+
 function loadEvents() {
     const eventList = document.querySelector('.event-list');
     events.forEach(event => {
@@ -94,7 +94,7 @@ function loadEvents() {
     });
 }
 
-// Función auxiliar para crear elementos
+
 function createItemElement(data, className) {
     const item = document.createElement('div');
     item.className = className;
@@ -108,7 +108,7 @@ function createItemElement(data, className) {
     return item;
 }
 
-// Función para manejar la navegación
+
 function handleNavigation() {
     const navLinks = document.querySelectorAll('nav ul li a');
     const sections = document.querySelectorAll('main section');
@@ -130,7 +130,7 @@ function handleNavigation() {
     });
 }
 
-// Inicialización
+
 document.addEventListener('DOMContentLoaded', () => {
     loadCarousel();
     handleCarousel();
